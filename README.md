@@ -7,6 +7,7 @@
 ## Module 0: Fundamentals Recap
 All of us have gaps in our knowledge. This lightning-quick review of the fundamentals will make sure we're all starting with the same rock-solid foundation.
 
+###### 10/9 - 10/23
 |대주제||Basix|BH|DJ(Zu Zu Zu Zu)|HYESECH|XiNiHa|
 |:---|:---|:---|:---|:---|:---|:---|
 |Introduction|||||||
@@ -30,6 +31,7 @@ All of us have gaps in our knowledge. This lightning-quick review of the fundame
 ## Module 1: Rendering Logic I
 Flow layout is the “OG” layout algorithm of the web, and it's still used heavily today. In this module, we explore how to best use Flow layout in modern times. We'll also deepen our understanding of common fundamentals like the Box Model.
 
+###### 10/24 - 11/06
 |대주제||Basix|BH|DJ(Zu Zu Zu Zu)|HYESECH|XiNiHa|
 |:---|:---|:---|:---|:---|:---|:---|
 |Built-in Declarations and Inheritance|||||||
@@ -58,6 +60,7 @@ Flow layout is the “OG” layout algorithm of the web, and it's still used hea
 ## Module 2: Rendering Logic II
 To understand CSS, we need to understand its systems. In this module, we dive deep into positioned layout to understand how containing blocks and stacking contexts work. We'll also learn about managing overflow and visibility.
 
+###### 11/07 - 11/20
 |대주제||Basix|BH|DJ(Zu Zu Zu Zu)|HYESECH|XiNiHa|
 |:---|:---|:---|:---|:---|:---|:---|
 |Relative Positioning|||||||
@@ -90,6 +93,7 @@ To understand CSS, we need to understand its systems. In this module, we dive de
 ## Module 3: Modern Component Architecture
 Over the past few years, an explosion of ideas and tools have made CSS much easier to work with at scale. In this module, we'll peek our head into this wild new world, and learn how to make the most of it.
 
+###### 11/21 - 12/04
 |대주제||Basix|BH|DJ(Zu Zu Zu Zu)|HYESECH|XiNiHa|
 |:---|:---|:---|:---|:---|:---|:---|
 |Problems and Solutions|||||||
