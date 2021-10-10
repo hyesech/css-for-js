@@ -8,20 +8,20 @@
 All of us have gaps in our knowledge. This lightning-quick review of the fundamentals will make sure we're all starting with the same rock-solid foundation.
 
 ###### ~ 10/23
-|대주제||Basix|BH|DJ(Zu Zu Zu Zu)|HYESECH|XiNiHa|옐|
+|대주제||Basix|BH|DJ(Zu Zu Zu Zu)|HYESECH|XiNiHa|yell|
 |:---|:---|:---|:---|:---|:---|:---|:---|
-|Introduction||✅|||✅|✅||
-|Anatomy of a Style Rule||✅|||✅|✅||
-|Media Queries||✅||||✅||
-|Selectors||✅||||✅||
-| &nbsp;&nbsp;&nbsp; Pseudo-classes||✅||||✅||
-| &nbsp;&nbsp;&nbsp; Pseudo-elements||✅||||✅||
-| &nbsp;&nbsp;&nbsp; Combinators||✅||||✅||
-| &nbsp;&nbsp;&nbsp; Exercises||✅||||✅||
-|Color||✅||||✅||
-|Units||✅||||✅||
-|Typograpy||✅||||✅||
-|Debugging in the Browser||✅||||✅||
+|Introduction||✅|||✅|✅|✅|
+|Anatomy of a Style Rule||✅|||✅|✅|✅|
+|Media Queries||✅||||✅|✅|
+|Selectors||✅||||✅|✅|
+| &nbsp;&nbsp;&nbsp; Pseudo-classes||✅||||✅|✅|
+| &nbsp;&nbsp;&nbsp; Pseudo-elements||✅||||✅|✅|
+| &nbsp;&nbsp;&nbsp; Combinators||✅||||✅|✅|
+| &nbsp;&nbsp;&nbsp; Exercises||✅||||✅|✅|
+|Color||✅||||✅|✅|
+|Units||✅||||✅|✅|
+|Typograpy||✅||||✅|✅|
+|Debugging in the Browser||✅||||✅|✅|
 
 </br>
 </br>
@@ -32,7 +32,7 @@ All of us have gaps in our knowledge. This lightning-quick review of the fundame
 Flow layout is the “OG” layout algorithm of the web, and it's still used heavily today. In this module, we explore how to best use Flow layout in modern times. We'll also deepen our understanding of common fundamentals like the Box Model.
 
 ###### ~ 11/06
-|대주제||Basix|BH|DJ(Zu Zu Zu Zu)|HYESECH|XiNiHa|옐|
+|대주제||Basix|BH|DJ(Zu Zu Zu Zu)|HYESECH|XiNiHa|yell|
 |:---|:---|:---|:---|:---|:---|:---|:---|
 |Built-in Declarations and Inheritance||||||||
 |The Cascade||||||||
@@ -61,7 +61,7 @@ Flow layout is the “OG” layout algorithm of the web, and it's still used hea
 To understand CSS, we need to understand its systems. In this module, we dive deep into positioned layout to understand how containing blocks and stacking contexts work. We'll also learn about managing overflow and visibility.
 
 ###### ~ 11/20
-|대주제||Basix|BH|DJ(Zu Zu Zu Zu)|HYESECH|XiNiHa|옐|
+|대주제||Basix|BH|DJ(Zu Zu Zu Zu)|HYESECH|XiNiHa|yell|
 |:---|:---|:---|:---|:---|:---|:---|:---|
 |Relative Positioning||||||||
 |Absolute Positioning||||||||
@@ -94,7 +94,7 @@ To understand CSS, we need to understand its systems. In this module, we dive de
 Over the past few years, an explosion of ideas and tools have made CSS much easier to work with at scale. In this module, we'll peek our head into this wild new world, and learn how to make the most of it.
 
 ###### ~ 12/04
-|대주제||Basix|BH|DJ(Zu Zu Zu Zu)|HYESECH|XiNiHa|옐|
+|대주제||Basix|BH|DJ(Zu Zu Zu Zu)|HYESECH|XiNiHa|yell|
 |:---|:---|:---|:---|:---|:---|:---|:---|
 |Problems and Solutions||||||||
 |Ecosystem World Tour||||||||
