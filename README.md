@@ -10,8 +10,8 @@ All of us have gaps in our knowledge. This lightning-quick review of the fundame
 ###### ~ 10/23
 |대주제||Basix|BH|DJ(Zu Zu Zu Zu)|HYESECH|XiNiHa|옐|
 |:---|:---|:---|:---|:---|:---|:---|:---|
-|Introduction||✅||||✅||
-|Anatomy of a Style Rule||✅||||✅||
+|Introduction||✅|||✅|✅||
+|Anatomy of a Style Rule||✅|||✅|✅||
 |Media Queries||✅||||✅||
 |Selectors||✅||||✅||
 | &nbsp;&nbsp;&nbsp; Pseudo-classes||✅||||✅||
