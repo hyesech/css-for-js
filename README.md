@@ -13,11 +13,11 @@ All of us have gaps in our knowledge. This lightning-quick review of the fundame
 |Introduction||✅|||✅|✅|✅|
 |Anatomy of a Style Rule||✅|||✅|✅|✅|
 |Media Queries||✅|||✅|✅|✅|
-|Selectors||✅||||✅|✅|
-| &nbsp;&nbsp;&nbsp; Pseudo-classes||✅||||✅|✅|
-| &nbsp;&nbsp;&nbsp; Pseudo-elements||✅||||✅|✅|
-| &nbsp;&nbsp;&nbsp; Combinators||✅||||✅|✅|
-| &nbsp;&nbsp;&nbsp; Exercises||✅||||✅|✅|
+|Selectors||✅|||✅|✅|✅|
+| &nbsp;&nbsp;&nbsp; Pseudo-classes||✅|||✅|✅|✅|
+| &nbsp;&nbsp;&nbsp; Pseudo-elements||✅|||✅|✅|✅|
+| &nbsp;&nbsp;&nbsp; Combinators||✅|||✅|✅|✅|
+| &nbsp;&nbsp;&nbsp; Exercises||✅|||✅|✅|✅|
 |Color||✅||||✅|✅|
 |Units||✅||||✅|✅|
 |Typograpy||✅||||✅|✅|
