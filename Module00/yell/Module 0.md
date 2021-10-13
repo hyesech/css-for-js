@@ -19,7 +19,7 @@
 ``` CSS
 @media (condition)
 ```   
-+ media condition에 들어가는 조건은 보통 screen의 사이즈 값이 들어간다. font-size는 condition 조건에 해당되지 않는다.
++ media condition은 보통 screen의 사이즈 값이 들어간다. 이와 달리 font-size는 조건에 해당되지 않는다.
 + screen의 사이즈에 따라 보여지는 contentsdml rule을 달리 할 수 있다.
 
 <br/>
