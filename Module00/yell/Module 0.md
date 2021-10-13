@@ -13,7 +13,8 @@
 
 <br/>
 
-### 1. **Media Query**, which allow us to apply different CSS in different scenarios. 
+### 1. **Media Query**
+which allow us to apply different CSS in different scenarios. 
 <br/>
 
 ``` CSS
@@ -26,7 +27,8 @@
 <br/>
 <br/>
 
-### 2. **Selector**, selector target a specific tag or class
+### 2. **Selector**
+selector target a specific tag or class
 
 <br/>
 <br/>
@@ -60,7 +62,8 @@ HTML에서 상호작용하는 버튼, 링크, form의 inputs을 누르거나 tap
 <br/>
 <br/>
 
-### 4. **Pseudo-elements**, pseudo-class와 달리 **::** colon을 두 개 쓴다.
+### 4. **Pseudo-elements**
+pseudo-class와 달리 **::** colon을 두 개 쓴다.
 <br/>
 
 ```CSS
@@ -80,7 +83,8 @@ HTML에서 상호작용하는 버튼, 링크, form의 inputs을 누르거나 tap
 <br/>
 <br/>
 
-### 5. **Combinators**, 여러 개의 *selectors*의 조합
+### 5. **Combinators**
+여러 개의 *selectors*의 조합
 <br/>
 
 ``` CSS
@@ -100,7 +104,7 @@ nav a
 <br/>
 
 ### 6. **Color**
-+ 대부분의 개발자들이 색을 선택할 때 쓰는 것이 `hex code, #FEDD47`과 같이 생긴 코드를 많이 사용하는데 이는 rgb를 코드로 나타낸 것이다. 이는 어떤 색상인지 대략적으로 유추하기가 힘든데, 그래서 추천하는 코드가 `hsl code`
+대부분의 개발자들이 색을 선택할 때 쓰는 것이 `hex code, #FEDD47`과 같이 생긴 코드를 많이 사용하는데 이는 rgb를 코드로 나타낸 것이다. 이는 어떤 색상인지 대략적으로 유추하기가 힘든데, 그래서 추천하는 코드가 `hsl code`
 
 <br/>
 
@@ -119,7 +123,7 @@ nav a
 <br/>
 
 ### 7. **Unit** 
-+ 크기(size)와 관련된 가장 많이 쓰이는 unit은 *pixel*이다. pixel(px)은 대부분의 경우, 어떤 size의 screen에서도 디자인이 무너질 가능성이 가장 적은 unit이다. 예외의 경우는 **Typography**
+크기(size)와 관련된 가장 많이 쓰이는 unit은 *pixel*이다. pixel(px)은 대부분의 경우, 어떤 size의 screen에서도 디자인이 무너질 가능성이 가장 적은 unit이다. 예외의 경우는 **Typography**
 
 <br/>
 
