@@ -21,7 +21,7 @@ which allow us to apply different CSS in different scenarios.
 @media (condition)
 ```   
 + media condition은 보통 screen의 사이즈 값이 들어간다. 이와 달리 font-size는 조건에 해당되지 않는다.
-+ screen의 사이즈에 따라 보여지는 contentsdml rule을 달리 할 수 있다.
++ screen의 사이즈에 따라 보여지는 contents는 rule을 달리 할 수 있다.
 
 <br/>
 <br/>
