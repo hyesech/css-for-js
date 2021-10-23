@@ -18,10 +18,10 @@ All of us have gaps in our knowledge. This lightning-quick review of the fundame
 | &nbsp;&nbsp;&nbsp; Pseudo-elements||✅|||✅|✅|✅|
 | &nbsp;&nbsp;&nbsp; Combinators||✅|||✅|✅|✅|
 | &nbsp;&nbsp;&nbsp; Exercises||✅|||✅|✅|✅|
-|Color||✅||||✅|✅|
-|Units||✅||||✅|✅|
-|Typograpy||✅||||✅|✅|
-|Debugging in the Browser||✅||||✅|✅|
+|Color||✅|||✅|✅|✅|
+|Units||✅|||✅|✅|✅|
+|Typograpy||✅|||✅|✅|✅|
+|Debugging in the Browser||✅|||✅|✅|✅|
 
 </br>
 </br>
