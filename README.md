@@ -34,7 +34,7 @@ Flow layout is the “OG” layout algorithm of the web, and it's still used hea
 ###### ~ 11/06
 |대주제||Basix|BH|DJ(Zu Zu Zu Zu)|HYESECH|XiNiHa|yell|
 |:---|:---|:---|:---|:---|:---|:---|:---|
-|Built-in Declarations and Inheritance|||||||✅|
+|Built-in Declarations and Inheritance|||||✅||✅|
 |The Cascade|||||||✅|
 |Directions|||||||✅|
 |The Box Model|||||||✅|
