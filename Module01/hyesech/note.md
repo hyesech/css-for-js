@@ -117,3 +117,143 @@ a {
 }
 ```
 이렇게 표기하면 그 부모 태그의 스타일을 상속 받을 수 있다. 그 부모 태그가 p 태그라면 p 태그의 색상을 상속 받을 것임.
+
+</br>
+</br>
+</br>
+</br>
+
+# The Cascade
+두 명의 전사가 들어오지만 한 명만 살아남습니다...
+누가 살아남는가? 그것은... ID > CLASS > TAG 
+클래스는 태그보다 Specificity 하고, ID는 클래스보다 더 구체적임.
+
+JS의 오퍼레이터를 생각해보자. 그러면 이해가 끝난다. (대박)
+```javascript
+const tagStyles = {
+  fontWeight: 'bold',
+  color: 'hsl(0deg 0% 10%)',
+};
+const classStyles = {
+  color: 'violet',
+}
+const appliedStyles = {
+  ...tagStyles,
+  ...classStyles,
+}
+```
+이해 완...
+
+</br>
+</br>
+</br>
+</br>
+
+# Directions
+block direction => vertical
+inline direction => horizontal
+블록 방향은 레고와 같고, 인라인 방향은 줄 서있는 사람들과 같다.
+
+### Logical property
+```css
+p {
+  display: block;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+}
+```
+
+margin-block은 수평축을 말한다. 그러니까 margin-block-start는 블록 엘리먼트가 top to bottom으로 쌓여있을 때 시작을 의미함. 그러므로 margin-linine-start는 단어들이 왼쪽에서 오른쪽으로 놓여있을 때 시작을 의미한다. 
+
+이것이 중요한 이유는 모든 언어가 왼쪽에서 오른쪽으로 전개되는 것이 아니기 때문임. 이건 내가 지난 주에 했던 고민과 정확히... 일치하네...
+
+
+</br>
+</br>
+</br>
+</br>
+
+# The Box Model
+박스 모델은  CSS 렌더링의 중요한 부분이기 때문에 정확하게 알아야 함. 
+
+박스 모델을 구성하는 4가지 측면은 다음과 같음.
+
+1. Content
+2. Padding
+3. Border
+4. Margin
+
+이 측면에 대한 비유가 엄청나다...
+
+> box-sizing
+> 
+> 이 속성이 사이즈를 계산하는 룰을 변경한다. 기본값은 content-box인데, 이건 내부의 content만 고려한다. 반대로 border-box는 훨씬 더 직관적으로 동작한다.
+
+그래서 이것이... 사실상 표준이다...
+```css
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+```
+
+</br>
+</br>
+
+## Padding
+패딩은 내부 공간이다. 따라서 패딩이 있는 박스에 색을 채우면 패딩 색도 바뀐다. 
+
+다른 건 익숙한데, 이게 인상적임
+```css
+/* The same thing, but using ✨ logical properties ✨ */
+.asymmetric-logical-padding {
+  padding-block-start: 20px;
+  padding-block-end: 40px;
+  padding-inline-start: 60px;
+  padding-inline-end: 80px;
+  ```
+  ### Units
+  개발자들은 패딩의 단위로 픽셀 쓰는 것을 좀 꺼리는데, 접근성이 떨어진다고 생각해서. 하지만 오히려 적합하다.
+  
+  타이포그래피의 vertical line 같은 것을 맞출 때를 생각해보면 된다. 굉장히 명시적인 단위라서, 지난 번에 브라우저에서 폰트 사이즈를 변경하는 두 가지 방법에 영향받지 않음. 그냥 언제나 32px이거나, 그 비율을 유지한다. 
+
+  패딩에 백분율을 사용하는 것은 일반적으로 별로인데, 예외의 경우가 있다. 패딩 사이즈를 백분율로 지정해서 특정 비율을 유지하는 것임. 이건 모듈 6에서...!
+
+
+</br>
+</br>
+
+## Border
+세 가지 속성이 있음(width, style, color). 필수 값은 스타일이다. 이게 없으면 아예 모양이 그려지지 않음. 스타일만 집어넣었을 때의 기본값은 a black, 3px-thick borde이다. 
+
+테두리 색상을 지정하지 않으면 기본적으로 글꼴 색상이 지정된다. 이걸 명시적으로 지정하는 방법은 currentColor 키워드를 쓰는 것임! 
+
+### border-radius
+이건... 백분율의 경우, 50%를 주면 원으로 만들 수 있다. 왜냐하면, 각 모서리의 반지름이 각 border 길이의 50%이기 때문이다. 
+
+### outline vs border
+아웃라인은 레이아웃에 영향을 주지 않는다. 이건 그냥 장식임. 쉐도우와 비슷.
+
+### outline: none;
+이렇게 설정하면 포커스 기능을 없애버릴 수도 있음. 그래서 일종의 대안을... 줘야 함. 
+
+```css
+button {
+  outline: none;
+}
+button:focus {
+  background: navy;
+  color: white;
+}
+```
+
+</br>
+</br>
+
+## Margin
+마진은 가장 확실한 형태가 없는 요소라... 미스테리임. 부모 엘리먼트 바깥으로 엘리먼트를 잡아당기거나, 컨테이너 안에 중간에 위치하도록 하는 등...?(애매하군...)의 일을 가능하게 함. 
+
+패딩과 보더는 양수만 가능하다. 하지만 마진은 음수도 가능함. 이걸 negative margin이라고 함.
+
