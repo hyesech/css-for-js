@@ -40,8 +40,8 @@ Flow layout is the “OG” layout algorithm of the web, and it's still used hea
 |The Box Model|||||✅||✅|
 | &nbsp;&nbsp;&nbsp; Padding|||||✅||✅|
 | &nbsp;&nbsp;&nbsp; Border|||||✅||✅|
-| &nbsp;&nbsp;&nbsp; Margin|||||||✅|
-|Flow Layout|||||||✅|
+| &nbsp;&nbsp;&nbsp; Margin|||||✅||✅|
+|Flow Layout|||||✅||✅|
 | &nbsp;&nbsp;&nbsp; Width Algorithms|||||||✅|
 | &nbsp;&nbsp;&nbsp; Height Algorithms|||||||✅|
 |Margin Collapse|||||||✅|
