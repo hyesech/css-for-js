@@ -64,10 +64,10 @@ Josh는 이 box model을 다음과 같이 비유해서 설명을 했는데 정�
 
 ---
 
-#### 1. *Content* : 사람 그 자체, 패딩을 입고 있는 사람.   
-#### 2. *Padding* : 사람이 입고 있는 패딩의 폴리에스터 충전재. 충전재가 많을수록, 패딩은 더 크게 보이고 사람 또한 더 많은 공간을 가지게 된다.   
-#### 3. *Border* :  패딩의 겉부분. 이것이 두껍거나 색깔을 가지고 있으면 사람의 모습에 영향을 끼친다.   
-#### 4.  *Margin* : 사람 간의 거리 정도를 의미. 
+### 1. *Content* : 사람 그 자체, 패딩을 입고 있는 사람.   
+### 2. *Padding* : 사람이 입고 있는 패딩의 폴리에스터 충전재. 충전재가 많을수록, 패딩은 더 크게 보이고 사람 또한 더 많은 공간을 가지게 된다.   
+### 3. *Border* :  패딩의 겉부분. 이것이 두껍거나 색깔을 가지고 있으면 사람의 모습에 영향을 끼친다.   
+### 4.  *Margin* : 사람 간의 거리 정도를 의미. 
 
 <br />
 
@@ -310,3 +310,246 @@ inline이 기본인 이미지의 경우, 이런 경우가 종종 있는데 지�
 <br />
 <br />
 <br />
+
+## 9.**Width Algorithms**
+- 퍼센트를 widths의 유닛으로 사용할 경우, 이는 부모 요소가 가지고 있는 컨텐츠의 크기에 따라 결정된다. 예를 들어 `body` tag가 400px의 크기를 차지하면, 그 밑에 있는 자식요소들의 100% width는 400px만큼이 된다.
+
+- Block elements의 `width` 기본 값은 `100%`아니라 `widht: auto`이다. 그래서 공간을 차지할 수 있는만큼 차지하려고 한다. 그러니 기본적으로 block elements는 content에 따라 차지하는 공간이 동적이다.
+
+<br />
+
+### 9.1. **Keyword values**
+- `width`의 값을 쓸 수 있는 두 가지 방법
+  1. **Measurements**, 숫자와 유닛을 쓰는 것. (100%, 200px, 5rem) : 수치로 나타낸 것은 정확한 사이즈, 또는 부모 요소가 얼마나 공간을 차지했느냐에 따라 달라진다.
+  2. **Keywords** (auto, fit-content) : elements가 가지고 있는 컨텐츠에 따라 달라진다.
+
+<br />
+
+  ### 9.1.1. **min-content**
+  `width: min-content`로 값을 정할 경우, 해당 요소의 자식요소의 컨텐츠에 따라 작을 수 있는만큼 작아진다. 
+
+  ``` HTML
+  <style>
+    h1 {
+      width: min-content;
+      background-color: fuchsia;
+    }
+  </style>
+
+  <h1>
+    This heading is shrunk down.
+  </hr>
+  ```
+  > 여기에서 `width`의 값은 **h1** 안에 있는 문장 중에서 가장 긴 단어인 **heading**의 사이즈로 결정된다.   
+
+  스페이스로 공간이 있거나 하이픈(-)으로 나눠진 단어의 경우, 쪼개져서 줄바꿈이 된다. 줄바꿈이 된 단어 중에서 가장 너비가 긴 것이 width의 값으로 정해진다.
+
+  <br />
+
+  ### 9.1.2. **max-content**
+  *min-content*와는 다르게 줄바꿈을 하지 않으며 가지고 있는 컨텐츠의 최대 길이만큼의 너비를 가진다. 부모가 가지고 있는 값에 영향을 받지 않으며, 가지고 있는 컨텐츠를 줄바꿈하지 않고 최대한 가지고 있는 너비만큼을 값으로 한다.   
+  그렇기 때문에 짧은 컨텐츠를 가지고 있는 경우, 부모가 가지고 있는 너비를 그대로 가져다 쓰는 `auto`보다 `width: max-content`를 쓰면 컨텐츠만큼의 배경색을 가질 수 있다.
+
+  ``` HTML
+  <style>
+    h1 {
+    width: max-content;
+    background-color: mediumspringgreen;
+  }
+  </style>
+
+  <h1>
+    A short heading
+  </h1>
+  ```
+
+  그렇지만, 모든 컨텐츠가 길이가 짧다는 보장이 없으니 이런 경우 쓰면 좋은 것이 바로...
+
+  <br />
+
+  ### 9.1.3. **fit-content**
+  이것은 가지고 있는 컨텐츠에 따라 `min-content` 그리고 `max-content`처럼 사용된다. 너비가 부모의 컨테이너 크기에 맞다면 줄바꿈 없이 `max-content`처럼 사용되고, 부모의 컨테이너보다 컨텐츠의 양이 많다면, 스스로 줄바꿈을 해서 너비에 맞도록 보여진다.
+
+  > Firefox의 경우 **prefix**를 요구함.
+  ```CSS
+  h2 {
+    /* Firefox requires a vendor prefix */
+    width: -moz-fit-content;
+    width: fit-content;
+    background-color: peachpuff;
+    margin-bottom: 16px;
+    padding: 8px;
+  }
+  ```
+
+  <br />
+
+  ### 9.1.4. **Min and max widths**
+  CSS 작업을 할 때에 `width` 속성만 정할 수 있는 것이 아니라, 브라우저가 인식할 수 있도록 `min-width`와 `max-width` 속성을 쓸 수 있다.
+  ``` CSS
+  .box {
+    width: 50%;
+    min-width: 170px;
+    max-width: 300px;
+    margin: 0 auto;
+    border: solid hotpink;
+  }
+  ```
+
+  <br />
+
+  `fit-content`가 유니크한 값으로 생각될 수도 있지만, 이 값을 쓰지 않아도 속성을 정할 수는 있다.
+
+  ```CSS
+  h2 {
+    width: -moz-fit-content;
+    width: fit-content;
+    background-color: peachpuff;
+    margin-bottom: 16px;
+    padding: 8px;
+  }
+  ```
+
+  ```CSS
+  h2 {
+    width: auto;
+    min-width: min-content;
+    max-width: max-content;
+    background-color: peachpuff;
+    margin-bottom: 16px;
+    padding: 8px;
+  }
+  ```
+
+  ```CSS
+  h2 {
+    display: table;
+    background-color: peachpuff;
+    margin-bottom: 16px;
+    padding: 8px;
+  }
+  ```
+  > 맨 위와 그 아래는 같은 결과물을 보여줌.
+
+<br />
+<br />
+<br />
+
+## 10. **Height Algorithms**
+`height`는 `width`와는 다르게 모든 컨텐츠가 딱 담길 만큼이 기본 값이다. `width: auto`보단 `width: min-content`에 가까운 느낌적인 느낌.   
+> CSS 작업을 할 때면 width와는 다르게 height의 값은 잘 넣어주지 않는 편이다. 데이터를 불러와서 작업할 경우, 그 데이터의 양이 얼마나 되는 지 가늠할 수 없고 이를 브라우저에 다 넣어주기 위해서. 앞서 언급한 것처럼 보통 height의 기본 값은 컨텐츠에 딱 맞도록 떨어지기 때문에 margin과 padding 값만 유의하고 `overflow: scroll`로 넣어주면 스크롤로 모든 컨텐츠의 내용을 볼 수 있기 때문이다.
+
+- 작업을 할 시에 `html, body { height :100% }`로 넣고 그를 감싸는 내용을 `min-height: 100%`로 작업하는 게 좋다.
+```CSS
+html, body {
+  height: 100%;
+}
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+footer {
+  border: solid hotpink;
+  padding: 8px;
+  margin-top: auto;
+}
+```
+> footer를 맨 밑에 배치하기 위해 `margin-top: auto`를 쓰면 된다고 느껴진다. footer의 `margin-top` 값이 공간을 가질 수 있는 만큼 전부 가지고 밑에 배치가 되니까!
+
+<br />
+<br />
+<br />
+
+## 11. **Rules of Margin Collapse**
+
+<br />
+
+### 11.1. 세로 속성의 margin만 붕괴된다.
+```HTML
+<style>
+  p {
+    margin-top: 24px;
+    margin-bottom: 24px;
+  }
+</style>
+
+<p>Paragraph One</p>
+<p>Paragraph Two</p>
+```
+이렇게 적용되어 있을 경우, 각 문단 사이에 *48px*만큼 떨어지는 것이 아니라 `24px`만큼만 떨어지게 된다. (반면에 가로 속성의 `margin-left`와 `margin-right`는 붕괴되지 않고 그 속성을 모두 가진다.)
+
+<br />
+
+### 11.2. Margin의 붕괴는 *Flow layout*에서만 일어난다.
+`display`의 속성이 inline, block, inline-block이 아닌 경우에는 이런 현상이 나타나지 않는다.
+
+<br />
+
+### 11.3. 인접 요소에만 영향을 끼친다.
+```HTML
+<style>
+  p {
+    margin-top: 32px;
+    margin-bottom: 32px;
+  }
+</style>
+
+<p>Paragraph One</p>
+<br />
+<p>Paragraph Two</p>
+```
+이처럼 `p` 태그 사이에 `<br />`이 있는 경우, 각각의 문단은 `margin-top`과 `margin-bottom`의 속성을 갖고 두 문단의 사이는 **48px**만큼 간격이 벌어진다.
+
+<br />
+
+### 11.4. 더 큰 margin이 이긴다.
+영향을 끼치는 margin끼리 값이 똑같지 않을 때는 어떨까? 그럴 경우에는 margin의 값이 더 큰 쪽의 것만큼 간격이 벌어진다. 
+
+<br />
+
+### 11.5. 복잡한 구조라고 해도 이 붕괴를 막지 못한다.
+Margin은 부모와 자식 간의 갭을 의미하는 것(이건 *padding*)이 아니라, 형제 요소간의 간격을 의미한다.   
+
+- padding이나 border에 의해 이러한 영향력을 벗어날 수 있다. 예를 들어 한 쪽 element에 padding의 값이 있는 경우, 각각의 요소는 자신이 가진 만큼의 `margin-bottom`과 `margin-top`을 온전히 갖게 된다.
+
+<br />
+
+### 11.6. Margin의 같은 방향에서도 무너질 수 있다.
+예를 들어 부모 요소와 자식 요소에 `margin-top`이 각각 주어졌을 때, 더 큰 margin이 이기는 것처럼 이 역시 어떤 요소가 더 큰 margin 값을 가졌느냐에 따라 한 쪽의 margin만 적용된다.
+
+> 그렇지만... 모든 경우의 수가 그렇지 아닐 수도 있기 때문에 CSS가 어려운 것... 
+
+<br />
+
+### 11.7. 두 개 이상의 margin에서도 붕괴될 수 있다.
+이 경우에는 앞서 언급한 규칙이 중첩되어 적용되었다고 생각하면 된다.
+- 형제 요소 간에서 하나는 `margin-bottom`, 다른 하나는 `margin-top`이 주어졌을 때 하나만 적용.
+- 부모와 자식 요소 간의 margin이 겹쳐질 때 더 큰 쪽의 margin 하나면 적용.
+
+<br />
+
+### 11.8. 음수의 margins
+양수로 적용한 margin과 비슷한 양상을 보인다. 양수의 margin에선 그 값이 더 큰 쪽의 것만 적용되지만, 음수의 margin에선 그 값이 더 작은 쪽의 것만 적용된다. 예를 들어 하나가 `margin-bottom: -25px`이고 다른 하나가 `margin-top: -75px`인 경우, 후자의 것만 적용된다.   
+
+그렇다면 한쪽이 음수의 margin인 `margin-bottom: -25px`을 가지고, 다른 한쪽이 양수의 margin인 `margin-top: 25px`을 가지고 있다면? 이는 둘의 margin의 값을 합쳐서 나온 값, 즉 `0px`만큼의 간격을 가진다.
+> 이렇게 써본 적이 없어서 굳이 이렇게 값을 줘야하나 싶기도 한데... 그렇지만 이런 원리를 알고 있다면 나중에 쓸 일이 있지 않을까 싶기도 하고.
+
+<br />
+
+### 11.9. 여러 개의 양수, 음수의 margins
+만약에 2개 이상의 margin이 겹친다면, 다음과 같은 알고리즘을 생각해보면 나올 예상 값을 알 수 있다.
+- 1. 가장 큰 값을 가지는 양수의 margin을 찾고
+- 2. 가장 작은 값을 가지는 음수의 margin을 찾고
+- 3. 찾은 두 개의 값을 더한다.
+
+<br />
+<br />
+<br />
+
+## 12. **Using Margin Effectively**
+최근 트렌드로는 margin을 다양하게 사용하는 것보다 padding과 layout 컴포넌트의 조합으로 더 많이 사용하는 추세이다.   
+
+*Heydon Pickering*이라는 사람은 margin을 풀에 비유해서 어떤 물체를 어디에 붙일지 결정하기 전과 비슷하다고 봤다. 
+
+>마지막 부분에 언급하는 건 각각의 element에 margin을 주는 것보다 요즘 추세가 컴포넌트로 작게 조각을 내는 것이기 때문에 컴포넌트로 작게 조각내서 사용하면 이렇 듯 margin이 겹치거나 중복되게 사용할 일은 없을 거 같다.
