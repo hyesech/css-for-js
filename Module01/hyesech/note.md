@@ -311,3 +311,137 @@ main {
 > This is a really common source of confusion. It isn't fixed by Flexbox or Grid, either; those tools help us control the contents of a container, but that container still needs to get its height from somewhere!
 
 여기에 답이 있음.
+
+</br>
+</br>
+</br>
+
+# Margin Collapse
+마진은 퍼스널 스페이스에 비유해 이해하면 쉽다.
+6피트의 퍼스널 스페이스를 가지고 싶다고 가정하면, 모든 사람들이 서로간의 간격을 12피트씩 가지고 있을 필요가 없다. 어쨌든 6피트의 공간이 있으면 된다. 따라서 어느 정도는 겹치더라도 문제가 없다. 하지만 둘 사이의 간격이 6피트보다 작아지기 시작하면 문제가 된다. 각자의 개인 공간인 6피트가 훼손되기 때문이다.
+
+</br>
+</br>
+
+## Rules of Margin Collapse
+이제부터 당신은... 멘붕하게 될 것이다...
+
+</br>
+
+### Only vertical margins collapse
+vertical margin만 붕괴된다...
+> In the early days, CSS wasn't intended to be used for layouts. The people writing the spec were imagining headings and paragraphs, not columns and sidebars.
+
+여태까지 CSS를 쓰면서 수평 마진은 붕괴되지 않는다는 사실을 모른 내가 대단하다... 
+
+```html
+html {
+  writing-mode: vertical-lr;
+}
+
+p {
+  display: block;
+  margin-block-start: 24px;
+  margin-block-end: 24px;
+}
+```
+근데 위와 같이 작성해서 쓰기 모드를 변경하면 또 마진이 붕괴된다. 그러니까 마진이 옆으로 놓여있다고 해서 붕괴되지 않는 것이 아님. 그보다는 only block-direction margins collapse 이라고 말하는 것이 더 정확하다. 
+
+</br>
+
+### Margins only collapse in Flow layout
+여러가지 레이아웃 모드가 있는데, Flow 레이아웃인 경우에만 마진 붕괴 현상이 일어난다. 그러니까 포지션이나 플렉스박스, 그리드 레이아웃에서는 마진 붕괴가 일어나지 않는다.
+
+그러면 그냥 플렉스박스를 쓰는 것이 가장 편하지 않을까...? 그런 생각이 드는데...
+
+</br>
+
+### Only adjacent elements collapse
+인접한 요소일 때만 붕괴한다.
+```html
+<style>
+  p {
+    margin-top: 32px;
+    margin-bottom: 32px;
+  }
+</style>
+<p>Paragraph One</p>
+<br />
+<p>Paragraph Two</p>
+```
+종종 뭔가를 나누기 위해 br 태그를 사용할 때가 있는데, 이 경우에는 각각의 p태그가 br 태그에 의해 분리된다. 즉, 인접하지 않게 된다. 이 경우 마진 붕괴 현상은 일어나지 않는다. 그런데 br에 마진을 주면 이제 붕괴가 일어나겠지? p와 br이 인접하기 때문에. 
+
+</br>
+
+### The bigger margin wins
+당연히... 더 큰 마진이 우선이다.
+
+</br>
+
+### Nesting doesn't prevent collapsing
+중첩이 마진 붕괴를 막아주지는 않는다. 
+
+이미 충분히 이상한데... 강사가 여기서부터 이상하다고 하네...
+
+```html
+<style>
+  p {
+    margin-top: 48px;
+    margin-bottom: 48px;
+  }
+</style>
+<div>
+  <p>Paragraph One</p>
+</div>
+<p>Paragraph Two</p>
+```
+위와 같은 경우, p태그를 div 태그 안쪽에 넣었지만 여전히 마진은 붕괴된다.
+
+마진은 형제간의 거리를 벌리기 위한 것이다. 부모 자식간의 거리를 벌리기 위한 것이 아님. 그 역할은 패딩이 한다. 
+
+몇 가지 예외의 경우가 있다.
+
+
+</br>
+
+### Margins can collapse in the same direction
+마진은 같은 방향에서 붕괴될 수 있다.
+```html
+<style>
+  .parent {
+    margin-top: 72px;
+  }
+  .child {
+    margin-top: 24px;
+  }
+</style>
+<div class="parent">
+  <p class="child">Paragraph One</p>
+</div>
+```
+위의 경우임. 
+
+</br>
+
+### More than two margins can collapse
+두 개 이상의 마진도 붕괴됩니다...
+
+</br>
+</br>
+
+## Will It Collapse?
+>This case can be surprising! You might expect '.child' to get pushed down within '.parent', but it's actually the same situation as the last round: the child's 40px is collapsing with the parent's 0px. If you want to increase the spacing inside an element, padding is a better choice.
+
+이 부분이 헷갈림. 그러니까 부모의 마진이 명시되지 않았을 때 0px이고 자식의 마진이 40px이기 때문에, 부모의 마진과 자식의 마진 즉 같은 방향의 마진도 무너질 수 있다는 법칙에 의거해서 둘 다 40px의 마진을 갖게 된다. 따라서 부모는 두고 자식만 간격을 가지고 싶다면 패딩을 이용해야 함.
+
+
+> At the top, our header and .title cannot collapse, because a border sits between them. On the bottom, header and main can collapse: even though our header has a bottom border, that border is above the margin. Borders are only an issue when they act as a wall between two margins.
+
+이 경우에는 header에 적용된 border가 경계선의 역할을 한다. 따라서 헤더에 적용된 20픽셀의 마진은 유효하고, 타이틀에 적용된 20픽셀의 마진도 유효하다. 경계선이 있기 때문임.
+
+
+
+</br>
+</br>
+
+## Using Margin Effectively
