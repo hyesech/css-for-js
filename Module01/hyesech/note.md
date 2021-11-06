@@ -303,3 +303,11 @@ main {
 </br>
 </br>
 
+# Flow Layout
+## Width Algorithms
+## Height Algorithms
+> Our section sits inside the <body> tag, and so when we set a percentage-based height or min-height, the percentage is based on that parent height. <body> doesn't have a specific height set, which means it uses the default behaviour: stay as short as possible, while still containing all the children.
+> In other words, we have an impossible condition: we're telling the <section> to be a percentage of the <body>, and the <body> wants to base its size off of the <section>. They're both looking to each other for guidance.
+> This is a really common source of confusion. It isn't fixed by Flexbox or Grid, either; those tools help us control the contents of a container, but that container still needs to get its height from somewhere!
+
+여기에 답이 있음.
