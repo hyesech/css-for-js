@@ -10,3 +10,4 @@
 - [Flow Layout](FlowLayout.md)
   - [Width Algorithms](WidthAlgorithms.md)
   - [Height Algorithms](HeightAlgorithms.md)
+- [Margin Collapse](MarginCollapse.md)
