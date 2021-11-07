@@ -7,3 +7,6 @@
   - [Padding](Padding.md)
   - [Border](Border.md)
   - [Margin](Margin.md)
+- [Flow Layout](FlowLayout.md)
+  - [Width Algorithms](WidthAlgorithms.md)
+  - [Height Algorithms](HeightAlgorithms.md)
