@@ -63,9 +63,9 @@ To understand CSS, we need to understand its systems. In this module, we dive de
 ###### ~ 11/20
 |대주제||Basix|BH|DJ(Zu Zu Zu Zu)|HYESECH|XiNiHa|yell|
 |:---|:---|:---|:---|:---|:---|:---|:---|
-|Relative Positioning||||||||
-|Absolute Positioning||||||||
-| &nbsp;&nbsp;&nbsp; Centering Trick||||||||
+|Relative Positioning|||||✅|||
+|Absolute Positioning|||||✅|||
+| &nbsp;&nbsp;&nbsp; Centering Trick|||||✅|||
 |Containing Blocks||||||||
 | &nbsp;&nbsp;&nbsp; Containing Puzzle||||||||
 | &nbsp;&nbsp;&nbsp; Exercises||||||||
