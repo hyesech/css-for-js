@@ -125,11 +125,12 @@ z인덱스의 숫자가 높을수록 좀 더 화면과 가깝다고 이해하면
 
 ### Managing z-index
 
+
 </br>
 </br>
 
 ### Portals
-
+포탈은 리액트에서 적용했을 때 아예 body태그 하위로 빠져버려서 컨트롤이 어렵다. 아예 공통 모달을 만들 때는 어려울 게 없는데, 만약 그런 식의 모달을 여러 개 만들어야 하는 경우 굉장히 피곤해지기 시작. 이런 문제를 해결할 수 있는 방법은 없는지?
 
 
 </br>
@@ -147,18 +148,98 @@ z인덱스의 숫자가 높을수록 좀 더 화면과 가깝다고 이해하면
 </br>
 
 ## Overflow
+오버플로우를 처리하는 방법.
+
+</br>
+</br>
+
+### Scroll
+콘텐츠가 겹칠 것 같으면 스크롤...
+x축과 y축 중 하나를 선택할 수 있다.
+
+윈도우와 리눅스는 기본적으로 오버플로우 스크롤 발생 시 스크롤바를 노출시키는데 맥 os는 약간 다름.
+
+</br>
+</br>
+
+### Auto
+다른 예시로는 오토 옵션이 있음. 오버플로우 케이스의 대부분의 경우 권장된다. 자동임.
+
+그러면 왜 스크롤을 사용하는 걸까?
+최적화 전략과 관련이 있음. 굳이 필요하지 않은데 오버플로우를 설정할 필요는 없다. 
+
+</br>
+</br>
+
+### Hidden
+그리고 숨기기. 컨테이너의 경계 바깥으로 오버플로우되는 부분을 잘라낸다. 보통 텍스트를 자르거나, 장식적 요소를 위해 이렇게 한다. 
+
+> 오버플로우가 특정 문제를 해결하기 위해 전략적으로 배치되는 경우.
+> 이 페이지에서 메뉴를 열 때 수업 내용 부분을 잘라서 오버플로우 시킨다. 
+
+오버플로우를 사용할 때는 왜 오버플로우를 사용했는지 적어두면 좋다. 분명히 까먹기 때문임. 이렇게!
+
+```css
+.wrapper {
+  /*
+    On mobile, we shift the lesson-content 300px to the right,
+    off-screen. I want it to be truncated, so that we only see
+    a sliver of the content when the menu is open.
+  */
+  overflow: hidden;
+}
+```
+
 
 </br>
 </br>
 
 ### Horizontal Overflow
+white space는 단어나 컨텐츠, 블록의 줄바꿈 옵션을 지정한다. nowrap 속성을 지정하면 줄바꿈되지 않는다. 
 
 </br>
 </br>
 
 ### Positioned Layout
+지금까지는 플로우 레이아웃 상에서의 오버플로우 속성을 이야기했다. 그렇다면 '흐름' 레이아웃이 아닌 positioned 레이아웃에서의 오버플로우는 어떻게 작동하는가? 
 
+</br>
+</br>
 
+### Overflow and containing blocks
+positioned 레이아웃의 특징이 영향을 미친다. 특정 블록 안에서(이 블록이 positioned layout인 경우) 오버플로우를 설정하더라도 의미가 없음. 
+
+```html
+<style>
+  .wrapper {
+    overflow: hidden;
+    width: 150px;
+    height: 150px;
+    border: 3px solid;
+  }
+  .box {
+    position: absolute;
+    top: 24px;
+    left: 24px;
+    background: deeppink;
+    width: 150px;
+    height: 200px;
+  }
+</style>
+
+<div class="wrapper">
+  <div class="box" />
+</div>
+```
+위와 같은 경우, wrapper에 hidden을 설정했지만 box는 absolute이고, 따라서 wrapper가 선언된 태그에 속하지 않음. 따라서 무시한다. 이것을 해결하는 방법은 부모 요소에 relative 속성을 추가해서 명시적으로 지정해주는 것임. 
+
+</br>
+</br>
+
+### Fixed positioning
+위의 분홍색 박스를 absolute에서 fixed로 변경하면 어떻게 되나? 
+
+상위 스크롤 막대가 사라지고 오버플로우가 디폴트 값으로 설정된 것처럼 상위 뷰 위치로 튀어나오게 된다. relative는 자식 속성을 귀속시킬 수 있지만 fixed와 같은 고정적인 속성의 경우는 DOM 구조 외부에 존재하는 initial containing block에 의해서만 제어된다. 따라서 일반 HTML 요소에는 fixed 된 자식 태그가 존재할 수 없음. 
 
 </br>
 </br>
