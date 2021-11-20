@@ -195,13 +195,51 @@ x축과 y축 중 하나를 선택할 수 있다.
 </br>
 
 ### Horizontal Overflow
+white space는 단어나 컨텐츠, 블록의 줄바꿈 옵션을 지정한다. nowrap 속성을 지정하면 줄바꿈되지 않는다. 
 
 </br>
 </br>
 
 ### Positioned Layout
+지금까지는 플로우 레이아웃 상에서의 오버플로우 속성을 이야기했다. 그렇다면 '흐름' 레이아웃이 아닌 positioned 레이아웃에서의 오버플로우는 어떻게 작동하는가? 
 
+</br>
+</br>
 
+### Overflow and containing blocks
+positioned 레이아웃의 특징이 영향을 미친다. 특정 블록 안에서(이 블록이 positioned layout인 경우) 오버플로우를 설정하더라도 의미가 없음. 
+
+```html
+<style>
+  .wrapper {
+    overflow: hidden;
+    width: 150px;
+    height: 150px;
+    border: 3px solid;
+  }
+  .box {
+    position: absolute;
+    top: 24px;
+    left: 24px;
+    background: deeppink;
+    width: 150px;
+    height: 200px;
+  }
+</style>
+
+<div class="wrapper">
+  <div class="box" />
+</div>
+```
+위와 같은 경우, wrapper에 hidden을 설정했지만 box는 absolute이고, 따라서 wrapper가 선언된 태그에 속하지 않음. 따라서 무시한다. 이것을 해결하는 방법은 부모 요소에 relative 속성을 추가해서 명시적으로 지정해주는 것임. 
+
+</br>
+</br>
+
+### Fixed positioning
+위의 분홍색 박스를 absolute에서 fixed로 변경하면 어떻게 되나? 
+
+상위 스크롤 막대가 사라지고 오버플로우가 디폴트 값으로 설정된 것처럼 상위 뷰 위치로 튀어나오게 된다. relative는 자식 속성을 귀속시킬 수 있지만 fixed와 같은 고정적인 속성의 경우는 DOM 구조 외부에 존재하는 initial containing block에 의해서만 제어된다. 따라서 일반 HTML 요소에는 fixed 된 자식 태그가 존재할 수 없음. 
 
 </br>
 </br>
