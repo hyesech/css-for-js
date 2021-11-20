@@ -37,8 +37,6 @@ Flow layout is the “OG” layout algorithm of the web, and it's still used hea
 
 ###### ~ 11/06
 
-<<<<<<< HEAD
-
 | 대주제                                      |     | Basix | BH  | DJ(Zu Zu Zu Zu) | HYESECH | XiNiHa | yell |
 | :------------------------------------------ | :-- | :---- | :-- | :-------------- | :------ | :----- | :--- |
 | Built-in Declarations and Inheritance       |     |       |     |                 | ✅      | ✅     | ✅   |
@@ -72,13 +70,13 @@ To understand CSS, we need to understand its systems. In this module, we dive de
 
 | 대주제                                 |     | Basix | BH  | DJ(Zu Zu Zu Zu) | HYESECH | XiNiHa | yell |
 | :------------------------------------- | :-- | :---- | :-- | :-------------- | :------ | :----- | :--- |
-| Relative Positioning                   |     |       |     |                 | ✅      |        | ✅   |
-| Absolute Positioning                   |     |       |     |                 | ✅      |        | ✅   |
-| &nbsp;&nbsp;&nbsp; Centering Trick     |     |       |     |                 | ✅      |        | ✅   |
-| Containing Blocks                      |     |       |     |                 | ✅      |        |      |
-| &nbsp;&nbsp;&nbsp; Containing Puzzle   |     |       |     |                 | ✅      |        |      |
-| &nbsp;&nbsp;&nbsp; Exercises           |     |       |     |                 | ✅      |        |      |
-| Stacking Contexts                      |     |       |     |                 | ✅      |        |      |
+| Relative Positioning                   |     |       |     |                 | ✅      | ✅     | ✅   |
+| Absolute Positioning                   |     |       |     |                 | ✅      | ✅     | ✅   |
+| &nbsp;&nbsp;&nbsp; Centering Trick     |     |       |     |                 | ✅      | ✅     | ✅   |
+| Containing Blocks                      |     |       |     |                 | ✅      | ✅     |      |
+| &nbsp;&nbsp;&nbsp; Containing Puzzle   |     |       |     |                 | ✅      | ✅     |      |
+| &nbsp;&nbsp;&nbsp; Exercises           |     |       |     |                 | ✅      | ✅     |      |
+| Stacking Contexts                      |     |       |     |                 | ✅      | ✅     |      |
 | &nbsp;&nbsp;&nbsp; Managing z-index    |     |       |     |                 | ✅      |        |      |
 | &nbsp;&nbsp;&nbsp; Portals             |     |       |     |                 | ✅      |        |      |
 | Fixed Positioning                      |     |       |     |                 | ✅      |        |      |
