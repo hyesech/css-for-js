@@ -73,7 +73,7 @@ To understand CSS, we need to understand its systems. In this module, we dive de
 | &nbsp;&nbsp;&nbsp; Managing z-index|||||✅|||
 | &nbsp;&nbsp;&nbsp; Portals|||||✅|||
 |Fixed Positioning|||||✅|||
-|Overflow||||||||
+|Overflow|||||✅|||
 | &nbsp;&nbsp;&nbsp; Horizontal Overflow||||||||
 | &nbsp;&nbsp;&nbsp; Psitioned Layout||||||||
 |Sticky Positioning||||||||
