@@ -41,21 +41,21 @@ Flow layout is the “OG” layout algorithm of the web, and it's still used hea
 
 | 대주제                                      |     | Basix | BH  | DJ(Zu Zu Zu Zu) | HYESECH | XiNiHa | yell |
 | :------------------------------------------ | :-- | :---- | :-- | :-------------- | :------ | :----- | :--- |
-| Built-in Declarations and Inheritance       |     |       |     |                 | ✅      |        | ✅   |
-| The Cascade                                 |     |       |     |                 | ✅      |        | ✅   |
-| Directions                                  |     |       |     |                 | ✅      |        | ✅   |
-| The Box Model                               |     |       |     |                 | ✅      |        | ✅   |
-| &nbsp;&nbsp;&nbsp; Padding                  |     |       |     |                 | ✅      |        | ✅   |
-| &nbsp;&nbsp;&nbsp; Border                   |     |       |     |                 | ✅      |        | ✅   |
-| &nbsp;&nbsp;&nbsp; Margin                   |     |       |     |                 | ✅      |        | ✅   |
-| Flow Layout                                 |     |       |     |                 | ✅      |        | ✅   |
-| &nbsp;&nbsp;&nbsp; Width Algorithms         |     |       |     |                 |         |        | ✅   |
-| &nbsp;&nbsp;&nbsp; Height Algorithms        |     |       |     |                 |         |        | ✅   |
-| Margin Collapse                             |     |       |     |                 |         |        | ✅   |
-| &nbsp;&nbsp;&nbsp; Rules of Margin Collapse |     |       |     |                 |         |        | ✅   |
-| &nbsp;&nbsp;&nbsp; Will It Collapse?        |     |       |     |                 |         |        | ✅   |
-| &nbsp;&nbsp;&nbsp; Using Margin Effectively |     |       |     |                 |         |        | ✅   |
-|                                             |     |       |     |                 |         |        |      |
+| Built-in Declarations and Inheritance       |     |       |     |                 | ✅      | ✅     | ✅   |
+| The Cascade                                 |     |       |     |                 | ✅      | ✅     | ✅   |
+| Directions                                  |     |       |     |                 | ✅      | ✅     | ✅   |
+| The Box Model                               |     |       |     |                 | ✅      | ✅     | ✅   |
+| &nbsp;&nbsp;&nbsp; Padding                  |     |       |     |                 | ✅      | ✅     | ✅   |
+| &nbsp;&nbsp;&nbsp; Border                   |     |       |     |                 | ✅      | ✅     | ✅   |
+| &nbsp;&nbsp;&nbsp; Margin                   |     |       |     |                 | ✅      | ✅     | ✅   |
+| Flow Layout                                 |     |       |     |                 | ✅      | ✅     | ✅   |
+| &nbsp;&nbsp;&nbsp; Width Algorithms         |     |       |     |                 | ✅      | ✅     | ✅   |
+| &nbsp;&nbsp;&nbsp; Height Algorithms        |     |       |     |                 | ✅      | ✅     | ✅   |
+| Margin Collapse                             |     |       |     |                 | ✅      | ✅     | ✅   |
+| &nbsp;&nbsp;&nbsp; Rules of Margin Collapse |     |       |     |                 | ✅      | ✅     | ✅   |
+| &nbsp;&nbsp;&nbsp; Will It Collapse?        |     |       |     |                 | ✅      | ✅     | ✅   |
+| &nbsp;&nbsp;&nbsp; Using Margin Effectively |     |       |     |                 | ✅      | ✅     | ✅   |
+|                                             |     |       |     |                 | ✅      | ✅     |      |
 | WorkShop: Agency page                       |     |       |     |                 |         |        | ✅   |
 | &nbsp;&nbsp;&nbsp; Solution                 |     |       |     |                 |         |        | ✅   |
 
