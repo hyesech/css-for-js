@@ -86,7 +86,7 @@ To understand CSS, we need to understand its systems. In this module, we dive de
 | Sticky Positioning                     |     |       |     |                 | ✅      |        |      |
 | &nbsp;&nbsp;&nbsp; Exercises           |     |       |     |                 | ✅      |        |      |
 | &nbsp;&nbsp;&nbsp; Troubleshooting     |     |       |     |                 | ✅      |        |      |
-| Hidden Content                         |     |       |     |                 |         |        |      |
+| Hidden Content                         |     |       |     |                 | ✅      |        |      |
 |                                        |     |       |     |                 |         |        |      |
 | WorkShop: Character Creator            |     |       |     |                 |         |        |      |
 | &nbsp;&nbsp;&nbsp; Solution            |     |       |     |                 |         |        |      |

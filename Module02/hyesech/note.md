@@ -287,7 +287,34 @@ overflow가 있는 경우, 스크롤 가능한 요소에 작동한다.
 </br>
 
 ## Hidden Content
+React 개발자 입장에서 display:hidden은 리액트를 이용해 DOM을 제어하는 것보다 나은 선택일 수도 있다. 성능상 그렇고,  디스플레이로 숨김처리된 요소는 렌더링되지 않은 엘리먼트이므로 메모리를 소비하지 않는다. 
 
+요소를 표시한 이후 바로 애니메이션을 적용해야 하는 경우에는 엘리먼트가 DOM에 존재하지만 보이지 않는 편이 낫다. 
+
+</br>
+</br>
+
+### Visibility
+visibility와 display의 가장 큰 차이점은 DOM에 존재하고, 공간을 차지하면서 보이지 않는 것임. 보통은 UI에 구멍나는 것을 좋아하지 않아서 잘 쓰이지는 않음. 
+
+
+</br>
+</br>
+
+### Opacity
+투명도 설정은 접근성 측면에서 좋지 않을 수도 있다. 다만 애니메이션과 관련되어 있으면 고려해볼만함. 이걸 이용해서 요소를 감추는 것은 좋은 선택이 아니다. 
+> Buttons can still be clicked
+
+> Text is still selectable
+
+> Form elements can still be focused
+
+> If we're not careful, we can introduce accessibility issues
+
+</br>
+</br>
+
+### 요소를 숨기되 접근성을 가져가는 방식
 
 
 </br>
