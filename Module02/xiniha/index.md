@@ -9,3 +9,7 @@
 - [Absolute Positioning](AbsolutePositioning.md)
 - [Containing Blocks](ContainingBlocks.md)
 - [Stacking Contexts](StackingContexts.md)
+  - [Managing z-index](ManagingZIndex.md)
+  - [Portals](Portals.md)
+- [Fixed Positioning](FixedPositioning.md)
+- [Overflow](Overflow.md)
