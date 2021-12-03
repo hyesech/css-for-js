@@ -73,12 +73,12 @@ To understand CSS, we need to understand its systems. In this module, we dive de
 | Relative Positioning                   |     |       |     |                 | ✅      | ✅     | ✅   |
 | Absolute Positioning                   |     |       |     |                 | ✅      | ✅     | ✅   |
 | &nbsp;&nbsp;&nbsp; Centering Trick     |     |       |     |                 | ✅      | ✅     | ✅   |
-| Containing Blocks                      |     |       |     |                 | ✅      | ✅     |      |
-| &nbsp;&nbsp;&nbsp; Containing Puzzle   |     |       |     |                 | ✅      | ✅     |      |
-| &nbsp;&nbsp;&nbsp; Exercises           |     |       |     |                 | ✅      | ✅     |      |
-| Stacking Contexts                      |     |       |     |                 | ✅      | ✅     |      |
-| &nbsp;&nbsp;&nbsp; Managing z-index    |     |       |     |                 | ✅      | ✅     |      |
-| &nbsp;&nbsp;&nbsp; Portals             |     |       |     |                 | ✅      | ✅     |      |
+| Containing Blocks                      |     |       |     |                 | ✅      | ✅     | ✅   |
+| &nbsp;&nbsp;&nbsp; Containing Puzzle   |     |       |     |                 | ✅      | ✅     | ✅   |
+| &nbsp;&nbsp;&nbsp; Exercises           |     |       |     |                 | ✅      | ✅     | ✅   |
+| Stacking Contexts                      |     |       |     |                 | ✅      | ✅     | ✅   |
+| &nbsp;&nbsp;&nbsp; Managing z-index    |     |       |     |                 | ✅      | ✅     | ✅   |
+| &nbsp;&nbsp;&nbsp; Portals             |     |       |     |                 | ✅      | ✅     | ✅   |
 | Fixed Positioning                      |     |       |     |                 | ✅      | ✅     |      |
 | Overflow                               |     |       |     |                 | ✅      | ✅     |      |
 | &nbsp;&nbsp;&nbsp; Horizontal Overflow |     |       |     |                 | ✅      | ✅     |      |
