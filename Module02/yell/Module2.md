@@ -202,3 +202,155 @@ Layer의 순서를 정하고 싶을 때, CSS에서 `z-index` 속성을 사용한
 <br />
 <br />
 <br />
+
+## 8. **Fixed Positioning**
+
+- `position: absolute`와 비슷한 점이 많다. 다른 점이 있다면 `position: fixed`는 사용자가 보고 있는 viewport에만 담긴다.
+- `.modal`을 **absolute**를 이용해서 한 가운데에 배치할 때처럼 **fixed** 역시 그와 같은 속성으로 뷰포트 정 가운데에 배치할 수 있다.
+
+```CSS
+.modal {
+    /*
+      For this party trick, we need:
+      - Position absolute or fixed
+      - All sides set to '0'
+      - explicit dimensions
+      - auto margins
+    */
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 85%;
+    height: 200px;
+    margin: auto;
+  }
+```
+
+<br />
+
+> `position: fixed`에 위치 값을 지정하지 않는다면? DOM에서 원래 위치해야할 자리에 놓여지며 그 속성 그대로 스크롤이 생겨서 아래로 내려도 고정한 위치에 그대로 고정되어 있다.
+
+<br />
+
+### 8.1. **The transform exception**
+
+그렇지만! `position: fixed`를 가지고 있는 element의 윗 세대에서 `transform` 속성을 가지고 있다면 원하는대로 이 위치가 고정되지 않는다. (띠-용) **transformed된 부모요소는 자식요소를 고정시킬 수 없다.** 바로 위 부모요소뿐만 아니라 DOM 트리를 타고 올라가서 그 윗 세대에 존재한다면. 그리고 또, transform 속성 뿐만 아니라 `will-change: transform` 역시 같은 양상을 보인다.
+
+<br />
+
+element가 `position: fixed`로 고정되지 않는다면, 그것은 윗 세대에 **transform** 속성을 가지고 있다는 얘기가 된다. 그래서 이 범인(?)을 찾기 위해 다음과 같은 코드를 이용할 수 있다.
+
+```JavaScript
+// Replace this with a relevant selector.
+// If you use a tool that auto-generates classes,
+// you can temporarily add an ID and select it
+// with '#id'.
+const selector = '.the-fixed-child';
+function findCulprits(elem) {
+  if (!elem) {
+    throw new Error(
+      'Could not find element with that selector'
+    );
+  }
+  let parent = elem.parentElement;
+  while (parent) {
+    const {
+      transform,
+      willChange
+    } = getComputedStyle(parent);
+    if (transform !== 'none' || willChange === 'transform') {
+      console.warn(
+        '🚨 Found a culprit! 🚨\n',
+        parent,
+        { transform, willChange }
+      );
+    }
+    parent = parent.parentElement;
+  }
+}
+findCulprits(document.querySelector(selector));
+```
+
+<br />
+<br />
+<br />
+
+## 9. **Overflow**
+
+> 저번 협업프로젝트할 때 이 `overflow`로 꽤나 곤혹을 치뤘던 기억이 있다... 내 마음대로 만들어지지 않는 스크롤들... (또르르)
+
+텍스트를 담고 있는 컨테이너가 텍스트의 길이보다 작을 때 이 텍스트가 넘치고, 이를 밑에 있는 DOM은 신경쓰지 않고 본인의 자리를 꿋꿋하게 지켜 넘친 텍스트와 밑에 있는 요소가 가지고 있는 텍스트가 겹치는 경우가 있다. 이럴 경우에 사용할 수 있는 속성이 바로 `overflow`.
+
+<br />
+
+### 9.1. **Accepted values**
+
+- `overflow: visible` 이것이 기본 값이다. 그래서 텍스트의 양에 비해 컨테이너가 작으면 이를 넘쳐서 그 내용을 다 보여주고자 한다.
+- `overflow: scroll` 컨테이너보다 텍스트의 양이 넘칠 때 이 속성을 사용하면 컨테이너에 스크롤이 생기고 스크롤을 내리면서 모든 텍스트를 담을 수 있다. `overflow`는 `overflow-x` / `overflow-y`를 축약한 것이다.
+
+  > MAC OS의 경우, `overflow: auto`가 아닌 `scroll`을 사용할 경우, 내용이 넘칠 때만 스크롤이 보여지는 것이 아니라 _항상_ x축, y축의 스크롤이 보인다. (겪어봄...) 맥 OS 설정 자체에서 스크롤이 필요할 때만 보이도록 수정할 수 있으나, 이걸 과연 하고 있는 사용자가 몇이나 될런지. 그래서 항상 유념하고 있어야 하는 부분.
+
+- `overflow: auto` 스크롤이 생길 수 있는 상황에서 가장 추천하는 방법. 뷰포트 자체가 어떤 사이즈인지 다 예측할 수 없고 때로는 스크롤이 생기길 원할 수도 아닐 수도 있다. 이럴 때 쓰면 가장 좋다.
+
+  > 그럼에도 `scroll` 값을 쓰는 때는? 스크롤이 생길 때는 여유 공간이 ~15px 정도가 필요할 수 있어 컨테이너가 조금 줄어들 수 있다. 만일 스크롤이 **반드시** 생긴다는 걸 알 수 있다면 `overflow: scroll`을 사용할 때 조금 더 부드러운 사용감을 보여준다고 한다.
+
+- `overflow: hidden` 이를 사용하는 이유는,
+
+  1. 넘치는 텍스트에 이클립스 (...)를 사용하기 위해서
+  2. 데코용으로 사용하는 것을 안보이게 하기 위해서 (미관상)
+  3. 원치않는 가로 스크롤을 숨기기 위해서
+
+  > 조쉬는 `overflow: hidden`을 사용할 때 주석을 달아놓는 것이 좋다고 추천한다. 이를 사용할 때는 어떠한 목적이 있을 때 사용했을텐데 미래의 자신이 보거나 다른 개발자들이 작업을 할 때 `overflow: hidden`을 지우고 무너지는 레이아웃을 보지 않도록...
+
+<br />
+<br />
+<br />
+
+## 10. **Horizontal Overflow**
+
+> **Q.** 컨테이너 안에 사진을 넣을 때 이 컨테이너보다 사진의 양이 많아서 컨테이너 밑으로 사진이 내려갈 때, 이를 방지하고 가로스크롤이 생기게 하려면 어떻게 해야할까?
+
+> **A.** `white-space: nowrap`과 `overflow: auto`를 사용하면 사진이 그 위치에 일렬로 정렬 되면서 가로스크롤이 생기게 만들 수 있다. `white-space`는 **inline**이나 **inline-block**을 줄바꿈을 관리할 수 있는 속성이다.
+
+<br />
+<br />
+<br />
+
+## 11. **Positioned Layout**
+
+### 11.1. **Overflow and containing blocks**
+
+> **Q.** 부모요소가 `overflow: hidden`을 가지고 있고 자식요소가 `position: absolute`라면 자식요소가 가려질까?
+
+```HTML
+<style>
+.wrapper {
+  overflow: hidden;
+  width: 150px;
+  height: 150px;
+  border: 3px solid;
+}
+.box {
+  position: absolute;
+  top: 24px;
+  left: 24px;
+  background: deeppink;
+  width: 150px;
+  height: 200px;
+}
+</style>
+
+<div class="wrapper">
+  <div class="box" />
+</div>
+```
+
+> **A.** `position: absolute`는 윗 세대가 `position`을 가지고 있지 않으면 그 바운더리를 벗어난다. 벗어난 자식요소를 가리려고 `overflow: hidden`을 사용한 것이라면 `position: relative` 속성도 함께 넣어주어야 한다. 대신에 `overflow: auto`를 사용하면 containing block 안에서 있어야 할 위체에 `.box`가 위치하며 x축과 y축에 스크롤이 자동으로 생겨서 이 안에 담겨있는 걸 확인할 수 있다.
+
+<br />
+
+### 11.2. **Fixed positioning**
+
+> 같은 HTML 구조로 `.box`에 `position: fixed`가 적용되면 `.wrapper`는 전혀 상관하지 않는다. `.box`가 고려하는 건 뷰포트다.
