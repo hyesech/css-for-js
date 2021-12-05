@@ -354,3 +354,228 @@ findCulprits(document.querySelector(selector));
 ### 11.2. **Fixed positioning**
 
 > 같은 HTML 구조로 `.box`에 `position: fixed`가 적용되면 `.wrapper`는 전혀 상관하지 않는다. `.box`가 고려하는 건 뷰포트다.
+
+<br />
+<br />
+<br />
+
+## 12. **Sticky Positioning**
+
+`position: sticky`는 비교적 최근에 생긴 룰이다. 이는 스크롤을 하면 그 자리에 고정되는 것이 `position: fixed`와 비슷하다. 하지만 **sticky**를 쓰기 위해서는 고정되기 위한 위치 값 `top` / `right` / `bottom` / `left`이 적어도 하나라도 필요하다. 가장 많이 쓰이는 위치 값은 `top: 0`.
+
+<br />
+
+### 12.1. **Stays in their box**
+
+`position: sticky`를 가진 element의 부모 속성에서만 이 룰이 적용된다. 스크롤이 이 부모 컨테이너의 위치를 벗어나면 **sticky**는 그 자리에 고정되어 있지 않는다.
+
+> 배치가 헤딩이 왼쪽, 내용이 오른쪽에 있는 경우, 문단을 나누는 헤딩의 경우에 쓰이면 좋다는 걸 언급하고 있다. 각 섹션에 해당되는 내용의 길이에 따라 **sticky**를 가지고 있는 헤딩이 내용에 흐름에 맞게 따라오다가 그 내용이 없으면 헤딩은 따라오지 않는다. 굿굿-!
+
+<br />
+
+### 12.2. **Offset**
+
+`position: sticky`는 원하는 만큼 가장자리에서 띄어질 수 있다. 위치 값을 `0`으로 주거나 더 큰 숫자의 값을 주거나 심지어 **음수**로도 위치를 정하고 고정시킬 수 있다.
+
+<br />
+
+### 12.3. **Not incorporeal**
+
+그 자리에 고정시키는 다른 속성과 비교해서 협조적인 편이다. 자신의 위치가 어디인지 알고 그 자리에 존재하기 때문에 형제 elements나 부모 element 역시 이를 감지하고 그 공간만큼을 내어준다.
+
+<br />
+
+### 12.4. **Horizontal stickiness**
+
+세로 스크롤을 사용할 때 많이 사용하지만, `position: sticky; top: 0; left: 0;`으로 값을 주고 가로로 스크롤이 생길 때 역시 이 룰을 사용할 수 있다. 가로 스크롤을 사용시 해당 element는 그 자리에 고정되어있다.
+
+<br />
+
+### 12.5. **Sticky positioning and browser support**
+
+`position: sticky`는 메인 브라우저와 메일 모바일 환경에서 통용적으로 사용할 수 있다.
+
+<br />
+<br />
+<br />
+
+## 13. **Troubleshooting**
+
+> 당신의 `position: sticky`가 작동하지 않는 이유
+
+<br />
+
+- **A parent is hiding/managing overflow** 부모 세대에서 `overflow` 속성을 가지고 있을 때
+
+  ```JS
+  // Replace this with a relevant selector.
+  // If you use a tool that auto-generates classes,
+  // you can temporarily add an ID and select it
+  // with '#id'.
+  const selector = '.the-fixed-child';
+  function findCulprits(elem) {
+    if (!elem) {
+      throw new Error(
+        'Could not find element with that selector'
+      );
+    }
+    let parent = elem.parentElement;
+    while (parent) {
+      const hasOverflow = getComputedStyle(parent).overflow;
+      if (hasOverflow !== 'visible') {
+        console.log(hasOverflow, parent);
+      }
+      parent = parent.parentElement;
+    }
+  }
+  findCulprits(document.querySelector(selector));
+  ```
+
+  devtool에 다음과 같은 스닙핏을 넣으면 윗 세대 elements에서 `overflow` 속성을 가지고 있는 것을 찾을 수 있다. 만일 `position: sticky`를 사용하고 싶다면 윗 세대가 가지고 있는 `overflow`에서의 값을 `hidden` 이나 `auto`를 기본 값인 `visible`로 바꿔줘야 **sticky**를 사용할 수 있다.
+
+<br />
+
+- **The container isn't big enough** sticky를 담고 있는 부모 element의 공간이 넉넉치 않을 때
+
+  `position: sticky`를 어디에 써야하는 지 유념하고 자식 element가 해당 속성으로 고정되어 있기 바란다면 공간을 넉넉하게 가지고 있을 것.
+
+<br />
+
+- **The sticky element is stretched** sticky가 늘려서 모든 공간을 차지할 때
+
+  이에 대한 해결책은 Module4, **Sticky sidebar**에서 알아보자-!
+
+<br />
+
+- **There's a thin gap above my sticky header!** sticky 헤더 위에 작은 갭이 있을 때
+
+  ```CSS
+  header {
+    position: sticky;
+    top: -1px; /* -1px instead of 0px */
+  }
+  ```
+
+  `top`에 음수 값을 넣어주면 이 문제를 해결할 수 있다.
+
+<br />
+<br />
+<br />
+
+## 14. **Hidden Content**
+
+> CSS로 DOM element를 숨길 수 있는 방법이 여러가지 있다.
+
+<br />
+
+### 14.1. **display: none**
+
+CSS로 컨텐츠를 숨기는데 가장 많이 사용하는 방식일 것이다. 이를 사용하면 DOM에 있음에도 불구하고 사용자가 사용하는 UI에서는 보이지 않으며 없는 것처럼 존재한다. 단점이라면 `display` 속성을 사용하기 때문에 해당 element에서 다른 Flow Layout의 `inline`이나 `inline-block`, 그리고 FlexBox, Grid를 사용할 수 없다.
+
+```CSS
+.desktop-header {
+  display: none;
+}
+@media (min-width: 1024px) {
+  .desktop-header {
+    display: block;
+  }
+  .mobile-header {
+    display: none;
+  }
+}
+```
+
+media query와의 조합으로 많이 쓰인다. `.desktop-header`의 경우, 기본 값이 `none`이지만 뷰포트가 1024px 이상일 때는 헤더가 보이도록 설정
+
+<br />
+
+### 14.2. **Visibility: hidden**
+
+이는 `display: none`과 비슷하게 화면상에서 안 보인다는 공통점이 있으나, 가장 크게 다른 점은 그 element가 눈에만 보이지 않을 뿐 그 위치에 **존재**한다는 것이다. 그렇기 때문에 키보드유저에게는 탭을 이용해서 해당 element를 확인할 수 있다.
+
+```HTML
+<style>
+  section {
+    visibility: hidden;
+  }
+
+  .button.two {
+    visibility: visible;
+  }
+</style>
+
+<section>
+  <button class="button one">
+    First Button
+  </button>
+  <button class="button two">
+    Second Button
+  </button>
+  <button class="button three">
+    Third Button
+  </button>
+</section>
+```
+
+하나의 장점은 부모에 `visibility: hidden`을 주었다고 하더라도 자식에 `visibility: visible`를 주면, 부모 요소와 관계없이 자식 요소는 보인다. 이렇게 사용하는 경우는 드물겠지만 부모 요소에 `display: none`으로 하였으면 자식 요소는 어떤 속성을 줘도 절대 보이지 않는다.
+
+<br />
+
+### 14.3. **Opacity**
+
+이진수를 사용하여 값을 주는 것이 아닌 0에서부터 1 사이의 값을 주어 투명도를 결정할 수 있다.  
+`opacity: 0`을 사용하더라도 실제로는 눈에만 보이지 않는 것뿐 존재하고 있기 때문에
+
+- 버튼에서는 클릭할 수 있고
+- 텍스트에서는 선택할 수 있으며
+- 폼에서는 여전히 포커싱이 된다.
+
+그렇기 때문에 **opacity**는 살짝의 투명도를 주거나 애니메이션 효과를 넣을 수 있는 속성으로 생각하면 좋다.
+
+<br />
+
+### 14.4. **Accessibility**
+
+웹을 사용하는 사람이 시각적인 아이콘 같은 것을 보고 유추하며 사용할 수 있을 거라는 생각은 접어두고 잘 보이지 않는 사용자는 스크린리더기와 같은 도구를 사용해서 웹을 사용할 수도 있다는 것을 명심하자. 아이콘은 함축적인 의미를 가지고서 미관적인 이유로 많이 사용하지만, 스크린리더기에서는 그저 '버튼'으로만 읽힐 수 있다. 이를 보조하기 위해 텍스트는 넣되 **시각적으로만** 보이지 않도록 룰을 정해주자-!
+
+```CSS
+.visually-hidden {
+  position: absolute;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  width: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+}
+```
+
+```JSX
+const visuallyHidden = {
+  position: 'absolute',
+  overflow: 'hidden',
+  clip: 'rect(0 0 0 0)',
+  height: '1px',
+  width: '1px',
+  margin: '-1px',
+  padding: 0,
+  border: 0,
+}
+
+render(<>
+  <button>
+    <span style={visuallyHidden}>
+      Contact support
+    </span>
+    <HelpCircle />
+  </button>
+</>);
+```
+
+> `aria-label`을 사용하기 보단 `visuallyHidden`을 사용하는 것이 낫다고 설명하는데 **aria-label**은 해당 요소를 정확하게 설명하지 못하는 경우가 있을 수 있기 때문이다. 한 가지 예로 자동 번역 서비스에서 `aria-label`을 무시하지만 `visuallyHidden`은 잡아낸다.
+
+<br />
+
+반대로 애니메이션 효과를 주기 위해 사용하고 스크린리더기에서는 보이지 않도록 할 수도 있다. HTML attributes 중에서 `aria-hidden=true`라고 적어놓으면 스크린리더기에 해당 element는 읽지 않는다.

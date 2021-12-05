@@ -83,10 +83,10 @@ To understand CSS, we need to understand its systems. In this module, we dive de
 | Overflow                               |     |       |     |                 | ✅      | ✅     | ✅   |
 | &nbsp;&nbsp;&nbsp; Horizontal Overflow |     |       |     |                 | ✅      | ✅     | ✅   |
 | &nbsp;&nbsp;&nbsp; Positioned Layout   |     |       |     |                 | ✅      | ✅     | ✅   |
-| Sticky Positioning                     |     |       |     |                 | ✅      |        |      |
-| &nbsp;&nbsp;&nbsp; Exercises           |     |       |     |                 | ✅      |        |      |
-| &nbsp;&nbsp;&nbsp; Troubleshooting     |     |       |     |                 | ✅      |        |      |
-| Hidden Content                         |     |       |     |                 | ✅      |        |      |
+| Sticky Positioning                     |     |       |     |                 | ✅      |        | ✅   |
+| &nbsp;&nbsp;&nbsp; Exercises           |     |       |     |                 | ✅      |        | ✅   |
+| &nbsp;&nbsp;&nbsp; Troubleshooting     |     |       |     |                 | ✅      |        | ✅   |
+| Hidden Content                         |     |       |     |                 | ✅      |        | ✅   |
 |                                        |     |       |     |                 |         |        |      |
 | WorkShop: Character Creator            |     |       |     |                 |         |        |      |
 | &nbsp;&nbsp;&nbsp; Solution            |     |       |     |                 |         |        |      |
