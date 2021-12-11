@@ -125,3 +125,33 @@ Over the past few years, an explosion of ideas and tools have made CSS much easi
 | &nbsp;&nbsp;&nbsp; ProgressBar            |     |       |     |                 |         |        |      |
 | &nbsp;&nbsp;&nbsp; Select                 |     |       |     |                 |         |        |      |
 | &nbsp;&nbsp;&nbsp; IconInput              |     |       |     |                 |         |        |      |
+
+</br>
+</br>
+</br>
+</br>
+
+
+## Module 4: Flexbox
+
+When it was released a decade ago, Flexbox revolutionized layout on the web. It gave us a cohesive system for distributing items along an axis. In this module, we'll learn how to build sophisticated, adaptive layouts using Flexbox.
+
+###### ~ 12/18
+
+| 대주제                                    |     | Basix | BH  | DJ(Zu Zu Zu Zu) | HYESECH | XiNiHa | yell |
+| :---------------------------------------- | :-- | :---- | :-- | :-------------- | :------ | :----- | :--- |
+| Hello Flexbox!                    |     |       |     |                 |         |        |      |
+| Directions and Alignment                      |     |       |     |                 |         |        |      |
+| &nbsp;&nbsp;&nbsp; Alignment Tricks |     |       |     |                 |         |        |      |
+| Growing and Shrinking                    |     |       |     |                 |         |        |      |
+| &nbsp;&nbsp;&nbsp; The "flex" Shorthand |     |       |     |                 |         |        |      |
+| &nbsp;&nbsp;&nbsp; Constraints            |     |       |     |                 |         |        |      |
+| &nbsp;&nbsp;&nbsp; Shorthand Gotchas              |     |       |     |                 |         |        |      |
+| Wrapping                       |     |       |     |                 |         |        |      |
+| Groups and Gaps                   |     |       |     |                 |         |        |      |
+| Ordering                                |     |       |     |                 |         |        |      |
+| Flexbox Interactions                                |     |       |     |                 |         |        |      |
+| Recipes                                |     |       |     |                 |         |        |      |
+|                                           |     |       |     |                 |         |        |      |
+| WorkShop: Sole&Ankle          |     |       |     |                 |         |        |      |
+| &nbsp;&nbsp;&nbsp; Solution            |     |       |     |                 |         |        |      |
