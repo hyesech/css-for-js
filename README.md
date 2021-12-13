@@ -104,9 +104,9 @@ Over the past few years, an explosion of ideas and tools have made CSS much easi
 
 | 대주제                                    |     | Basix | BH  | DJ(Zu Zu Zu Zu) | HYESECH | XiNiHa | yell |
 | :---------------------------------------- | :-- | :---- | :-- | :-------------- | :------ | :----- | :--- |
-| Problems and Solutions                    |     |       |     |                 |         |        |      |
-| Ecosystem World Tour                      |     |       |     |                 |         |        |      |
-| Styled-components 101                     |     |       |     |                 |         |        |      |
+| Problems and Solutions                    |     |       |     |                 |  ✅       |        |      |
+| Ecosystem World Tour                      |     |       |     |                 |   ✅      |        |      |
+| Styled-components 101                     |     |       |     |                 |   ✅      |        |      |
 | &nbsp;&nbsp;&nbsp; Installation and Setup |     |       |     |                 |         |        |      |
 | &nbsp;&nbsp;&nbsp; Performance            |     |       |     |                 |         |        |      |
 | &nbsp;&nbsp;&nbsp; Exercises              |     |       |     |                 |         |        |      |
