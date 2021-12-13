@@ -107,7 +107,7 @@ Over the past few years, an explosion of ideas and tools have made CSS much easi
 | Problems and Solutions                    |     |       |     |                 |  ✅       |        |      |
 | Ecosystem World Tour                      |     |       |     |                 |   ✅      |        |      |
 | Styled-components 101                     |     |       |     |                 |   ✅      |        |      |
-| &nbsp;&nbsp;&nbsp; Installation and Setup |     |       |     |                 |         |        |      |
+| &nbsp;&nbsp;&nbsp; Installation and Setup |     |       |     |                 |    ✅     |        |      |
 | &nbsp;&nbsp;&nbsp; Performance            |     |       |     |                 |         |        |      |
 | &nbsp;&nbsp;&nbsp; Exercises              |     |       |     |                 |         |        |      |
 | &nbsp;&nbsp;&nbsp; Global Styles          |     |       |     |                 |         |        |      |
